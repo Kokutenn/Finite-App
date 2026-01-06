@@ -28,7 +28,7 @@ struct SettingsView: View {
                                 .foregroundColor(appearanceManager.isDarkMode ? .purple : .orange)
                             
                             Text("Appearance")
-                                .foregroundColor(theme.primaryText)
+                                .foregroundColor(theme.cardText)
                             
                             Spacer()
                             
@@ -50,7 +50,7 @@ struct SettingsView: View {
                     Section {
                         HStack {
                             Text("Signed in with Apple")
-                                .foregroundColor(theme.primaryText)
+                                .foregroundColor(theme.cardText)
                             Spacer()
                             Image(systemName: "checkmark.circle.fill")
                                 .foregroundColor(.green)
@@ -74,9 +74,10 @@ struct SettingsView: View {
                                 Image(systemName: "bell.fill")
                                     .foregroundColor(.orange)
                                 Text("Enable Notifications")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                             }
                         }
+                        .tint(.green)
                         .listRowBackground(theme.cardBackground)
                         .onChange(of: notificationsEnabled) { _, newValue in
                             handleNotificationToggle(newValue)
@@ -85,10 +86,10 @@ struct SettingsView: View {
                         if notificationsEnabled {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("Notification Schedule")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                                 Text("• Morning (8 AM)\n• Afternoon (2 PM)\n• Evening (7 PM)")
                                     .font(.system(size: 13))
-                                    .foregroundColor(theme.secondaryText)
+                                    .foregroundColor(theme.cardSecondaryText)
                             }
                             .listRowBackground(theme.cardBackground)
                         }
@@ -104,7 +105,7 @@ struct SettingsView: View {
                                 Image(systemName: "hand.raised.fill")
                                     .foregroundColor(.red)
                                 Text("Manage Blocked Apps")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                             }
                         }
                         .listRowBackground(theme.cardBackground)
@@ -120,9 +121,10 @@ struct SettingsView: View {
                                 Image(systemName: "hand.tap.fill")
                                     .foregroundColor(.purple)
                                 Text("Haptic Feedback")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                             }
                         }
+                        .tint(.green)
                         .listRowBackground(theme.cardBackground)
                         
                         Toggle(isOn: $soundEffectsEnabled) {
@@ -130,9 +132,10 @@ struct SettingsView: View {
                                 Image(systemName: "speaker.wave.2.fill")
                                     .foregroundColor(.blue)
                                 Text("Sound Effects")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                             }
                         }
+                        .tint(.green)
                         .listRowBackground(theme.cardBackground)
                     } header: {
                         Text("PREFERENCES")
@@ -144,10 +147,10 @@ struct SettingsView: View {
                         HStack {
                             VStack(alignment: .leading, spacing: 4) {
                                 Text("Productive years left")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                                 Text("\(appState.totalProductiveDaysRemaining.formatted()) days")
                                     .font(.system(size: 13))
-                                    .foregroundColor(theme.secondaryText)
+                                    .foregroundColor(theme.cardSecondaryText)
                             }
                             
                             Spacer()
@@ -170,20 +173,20 @@ struct SettingsView: View {
                     Section {
                         HStack {
                             Text("Version")
-                                .foregroundColor(theme.primaryText)
+                                .foregroundColor(theme.cardText)
                             Spacer()
                             Text("0.5.0")
-                                .foregroundColor(theme.secondaryText)
+                                .foregroundColor(theme.cardSecondaryText)
                         }
                         .listRowBackground(theme.cardBackground)
                         
                         Button(action: {}) {
                             HStack {
                                 Text("Privacy Policy")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .foregroundColor(theme.secondaryText)
+                                    .foregroundColor(theme.cardSecondaryText)
                                     .font(.system(size: 12))
                             }
                         }
@@ -192,10 +195,10 @@ struct SettingsView: View {
                         Button(action: {}) {
                             HStack {
                                 Text("Terms of Service")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                                 Spacer()
                                 Image(systemName: "chevron.right")
-                                    .foregroundColor(theme.secondaryText)
+                                    .foregroundColor(theme.cardSecondaryText)
                                     .font(.system(size: 12))
                             }
                         }
@@ -206,7 +209,7 @@ struct SettingsView: View {
                                 Image(systemName: "envelope.fill")
                                     .foregroundColor(.blue)
                                 Text("Send Feedback")
-                                    .foregroundColor(theme.primaryText)
+                                    .foregroundColor(theme.cardText)
                             }
                         }
                         .listRowBackground(theme.cardBackground)
@@ -220,6 +223,7 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
+            .overlay(DebugThemeToggle())
             .confirmationDialog(
                 "Sign Out",
                 isPresented: $showSignOutConfirmation,

@@ -28,10 +28,7 @@ struct SignInView: View {
                             .font(.system(size: 48, weight: .bold, design: .rounded))
                             .foregroundColor(theme.primaryText)
                     }
-                    
-                    Text("Time Is Running Out")
-                        .font(.system(size: 18, weight: .medium))
-                        .foregroundColor(theme.secondaryText)
+                    .padding(.horizontal, 32)
                 }
                 
                 Spacer()
@@ -99,6 +96,7 @@ struct SignInView: View {
                     .frame(height: 40)
             }
         }
+        .overlay(DebugThemeToggle())
     }
 }
 

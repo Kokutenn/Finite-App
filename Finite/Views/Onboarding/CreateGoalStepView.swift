@@ -65,16 +65,24 @@ struct CreateGoalStepView: View {
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(theme.secondaryText)
                     
-                    TextField("Launch my startup", text: $goalName)
-                        .font(.system(size: 17))
-                        .foregroundColor(theme.inputText)
-                        .padding(16)
-                        .background(theme.inputBackground)
-                        .cornerRadius(12)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(theme.divider, lineWidth: 1)
-                        )
+                    ZStack(alignment: .leading) {
+                        if goalName.isEmpty {
+                            Text("Launch my startup")
+                                .font(.system(size: 17))
+                                .foregroundColor(theme.inputPlaceholder)
+                                .padding(.horizontal, 16)
+                        }
+                        TextField("", text: $goalName)
+                            .font(.system(size: 17))
+                            .foregroundColor(theme.inputText)
+                            .padding(16)
+                    }
+                    .background(theme.inputBackground)
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(theme.divider, lineWidth: 1)
+                    )
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 20)
@@ -158,16 +166,24 @@ struct CreateGoalStepView: View {
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(theme.secondaryText)
                     
-                    TextField("So I can be my own boss", text: $whyItMatters)
-                        .font(.system(size: 17))
-                        .foregroundColor(theme.inputText)
-                        .padding(16)
-                        .background(theme.inputBackground)
-                        .cornerRadius(12)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(theme.divider, lineWidth: 1)
-                        )
+                    ZStack(alignment: .leading) {
+                        if whyItMatters.isEmpty {
+                            Text("So I can be my own boss")
+                                .font(.system(size: 17))
+                                .foregroundColor(theme.inputPlaceholder)
+                                .padding(.horizontal, 16)
+                        }
+                        TextField("", text: $whyItMatters)
+                            .font(.system(size: 17))
+                            .foregroundColor(theme.inputText)
+                            .padding(16)
+                    }
+                    .background(theme.inputBackground)
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(theme.divider, lineWidth: 1)
+                    )
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 16)
@@ -177,16 +193,24 @@ struct CreateGoalStepView: View {
                         .font(.system(size: 14, weight: .medium))
                         .foregroundColor(theme.secondaryText)
                     
-                    TextField("Staying stuck in my job", text: $whatYoullRegret)
-                        .font(.system(size: 17))
-                        .foregroundColor(theme.inputText)
-                        .padding(16)
-                        .background(theme.inputBackground)
-                        .cornerRadius(12)
-                        .overlay(
-                            RoundedRectangle(cornerRadius: 12)
-                                .stroke(theme.divider, lineWidth: 1)
-                        )
+                    ZStack(alignment: .leading) {
+                        if whatYoullRegret.isEmpty {
+                            Text("Staying stuck in my job")
+                                .font(.system(size: 17))
+                                .foregroundColor(theme.inputPlaceholder)
+                                .padding(.horizontal, 16)
+                        }
+                        TextField("", text: $whatYoullRegret)
+                            .font(.system(size: 17))
+                            .foregroundColor(theme.inputText)
+                            .padding(16)
+                    }
+                    .background(theme.inputBackground)
+                    .cornerRadius(12)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 12)
+                            .stroke(theme.divider, lineWidth: 1)
+                    )
                 }
                 .padding(.horizontal, 24)
                 .padding(.bottom, 16)

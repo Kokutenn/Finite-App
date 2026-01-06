@@ -77,6 +77,7 @@ struct HomeView: View {
                     await viewModel.loadGoals(userId: userId)
                 }
             }
+            .overlay(DebugThemeToggle())
         }
     }
     

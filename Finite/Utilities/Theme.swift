@@ -60,13 +60,17 @@ struct Theme {
     }
     
     var cardSecondaryText: Color {
-        isDark ? .gray : Color.white.opacity(0.7)
+        isDark ? .gray : Color.white.opacity(0.9)
+    }
+    
+    var inputPlaceholder: Color {
+        isDark ? Color.white.opacity(0.5) : Color.white.opacity(0.5)
     }
     
     // MARK: - UI Element Colors
     
     var divider: Color {
-        isDark ? Color.white.opacity(0.1) : Color.black.opacity(0.2)
+        isDark ? Color.white.opacity(0.1) : Color.white.opacity(0.3)
     }
     
     var buttonBackground: Color {

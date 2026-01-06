@@ -69,6 +69,8 @@ struct OnboardingContainerView: View {
                 .tabViewStyle(.page(indexDisplayMode: .never))
                 .animation(.easeInOut(duration: 0.3), value: currentStep)
             }
+            
+            DebugThemeToggle()
         }
     }
     
